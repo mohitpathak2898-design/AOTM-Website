@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOTM Website</title>
+    <title>Arena GTB Nagar</title>
+
     <style>
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            overflow-y: scroll; 
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #222;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
         }
 
         .container {
-            max-width: 1300px; 
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
         }
 
         a {
@@ -37,153 +34,148 @@
             color: inherit;
         }
 
-       
+        
         .navbar {
-            background: #ffffff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            width: 100%;
         }
 
         .nav-flex {
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
 
         .logo {
-            flex: 1;
-            text-align: left;
-        }
-
-        .logo a {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: #d32f2f; 
-            cursor: default;
-            white-space: nowrap;
+            color: #e53935;
         }
 
-       
         .nav-menu {
             display: flex;
             list-style: none;
-            justify-content: flex-end; 
-        }
-
-        .nav-menu li {
-            margin-left: 2.5rem; 
+            gap: 25px;
         }
 
         .nav-menu a {
-            font-weight: 500;
-            color: #333;
-            outline: none;
-            padding: 5px 0; 
-            transition: color 0.2s ease;
-            white-space: nowrap;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .nav-menu a:hover, 
-        .nav-menu a:active, 
-        .nav-menu a:focus,
-        .nav-menu a.active {
-            color: #d32f2f;
+        .nav-menu a:hover {
+            color: #e53935;
         }
 
         
-        #check-menu {
-            display: none; 
-        }
+        #check-menu { display: none; }
+        .dropdown-btn { display: none; cursor: pointer; }
 
-        .dropdown-btn {
-            display: none; 
-            cursor: pointer;
-            padding: 5px;
-        }
-
-       
-        .dropdown-btn span,
-        .dropdown-btn span::before,
-        .dropdown-btn span::after {
-            display: block;
-            background: #333;
-            height: 3px;
-            width: 25px;
-            position: relative;
-        }
-
-        .dropdown-btn span::before { content: ""; position: absolute; top: -8px; }
-        .dropdown-btn span::after { content: ""; position: absolute; top: 8px; }
-
-       
+        
         .hero {
-            background: #222;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x800');
+            min-height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            height: 60vh; 
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 8vw, 4rem); 
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #e53935;
             color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
+        .btn:hover {
+            background: #c62828;
+            transform: translateY(-3px);
         }
 
-        .main-content {
-            padding: 100px 0;
+        
+        .container {
+            height: 400px; 
+            background: transparent;
+        }
+
+        
+        footer {
+            background: #111;
+            color: white;
             text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+            margin-top: auto; 
         }
 
-       
+        
         @media (max-width: 768px) {
             .dropdown-btn {
-                display: block; 
+                display: block;
+                z-index: 1001;
             }
+
+            .dropdown-btn span, .dropdown-btn span::before, .dropdown-btn span::after {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: #333;
+                position: relative;
+                transition: 0.3s;
+            }
+            .dropdown-btn span::before { content: ""; position: absolute; top: -8px; }
+            .dropdown-btn span::after { content: ""; position: absolute; top: 8px; }
 
             .nav-menu {
-                display: none; 
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #ffffff;
+                position: fixed;
+                top: 0;
+                right: -100%; 
+                width: 70%;
+                height: 100vh;
+                background: white;
                 flex-direction: column;
-                padding: 0;
-                border-bottom: 2px solid #ccc;
-                text-align: center; 
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             }
 
-            .nav-menu li {
-                margin-left: 0;
-            }
-
-            .nav-menu a {
-                display: block;
-                padding: 15px 25px;
-                border-bottom: 1px solid #eee;
-            }
-
-          
             #check-menu:checked ~ .nav-menu {
-                display: flex;
+                right: 0; 
             }
 
-           
             #check-menu:checked ~ .dropdown-btn span { background: transparent; }
             #check-menu:checked ~ .dropdown-btn span::before { transform: rotate(45deg); top: 0; }
             #check-menu:checked ~ .dropdown-btn span::after { transform: rotate(-45deg); top: 0; }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            
+            .container { height: 200px; } 
         }
     </style>
 </head>
@@ -191,37 +183,39 @@
 
     <nav class="navbar">
         <div class="container nav-flex">
-            <div class="logo">
-                <a>ARENA GTB NAGAR</a>
-            </div>
-            
+            <div class="logo">ARENA ANIMATION GTB NAGAR</div>
+
             <input type="checkbox" id="check-menu">
-            
             <label for="check-menu" class="dropdown-btn">
                 <span></span>
             </label>
 
             <ul class="nav-menu">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Courses</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Courses</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <h1>This Website is in Development...</h1>
+    <main class="hero">
+        <div class="hero-content container">
+            <h1>Build Your Creative Career</h1>
+            <p>
+                Learn Graphic Design, Animation, VFX, Motion Graphics, Web Design and Video Editing from industry experts at Arena Animation GTB Nagar.
+            </p>
+            <a href="#" class="btn">Explore Courses</a>
         </div>
-    </header>
+    </main>
 
-    <section class="main-content">
+    <div class="container"></div>
+
+    <footer>
         <div class="container">
-            <div style="height: 600px;"></div> 
+            <p>© 2026 Arena Animation GTB Nagar. All Rights Reserved.</p>
         </div>
-    </section>
+    </footer>
 
 </body>
 </html>
