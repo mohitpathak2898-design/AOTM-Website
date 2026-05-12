@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        
+       
         .header-bg {
             background-color: #ffffff;
             position: fixed;
@@ -89,7 +89,16 @@
 
         .nav-link:hover { color: #3b82f6; }
 
-       
+        
+        #check { display: none; }
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+
+      
         .hero-section {
             padding: 160px 0 100px 0;
             background-color: #ffffff;
@@ -154,12 +163,7 @@
 
         
         .section-padding { padding: 80px 0; }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
+        .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
 
         .grid-container {
@@ -185,21 +189,13 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
-        .box-card h3 {
-            font-size: 1.3rem;
-            color: #111111;
-            margin-bottom: 15px;
-        }
+        .box-card h3 { font-size: 1.3rem; color: #111111; margin-bottom: 15px; }
+        .box-card p { color: #666666; font-size: 0.95rem; }
 
-        .box-card p {
-            color: #666666;
-            font-size: 0.95rem;
-        }
-
-        
+     
         .main-footer {
-            background-color: #ffffff;
-            padding: 30px 0;
+            background-color: off white;
+            padding: 40px 20px;
             border-top: 1px solid #eef0f3;
             text-align: center;
         }
@@ -211,16 +207,39 @@
         }
 
         .footer-text span {
-            color: balck;
+            color: black; 
             font-weight: 600;
         }
 
         
         @media (max-width: 768px) {
-            .nav-container { width: 90%; }
+            .menu-btn { display: block; }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu li { border-top: 1px solid #eee; }
+            .nav-menu li a { padding: 15px; display: block; }
+
+            #check:checked ~ .nav-menu {
+                display: block; 
+            }
+
             .hero-container { flex-direction: column; text-align: center; }
             .hero-img { order: -1; margin-left: 0; margin-top: 20px; }
-            .nav-menu { display: none; }
+            
+          
+            .main-footer { padding: 30px 15px; }
+            .footer-text { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -235,6 +254,11 @@
                     <span>GTB Nagar, Delhi</span>
                 </div>
             </a>
+            
+            <input type="checkbox" id="check">
+            <label for="check" class="menu-btn">
+                <i class="ri-menu-line"></i>
+            </label>
             
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -265,7 +289,6 @@
             <h2>Our Courses</h2>
             <p>Choose the best program to kickstart your creative journey</p>
         </div>
-
         <div class="grid-container">
             <div class="box-card">
                 <h3>Animation</h3>
@@ -291,7 +314,6 @@
             <h2>Why Choose Arena Animation</h2>
             <p>We provide standard facilities and quality education for our students</p>
         </div>
-
         <div class="grid-container">
             <div class="box-card">
                 <h3>Expert Mentors</h3>
@@ -313,11 +335,9 @@
     </section>
 
     <footer class="main-footer">
-        <div class="container">
-            <p class="footer-text">
-                &copy; Arena Animation 2026 | Design by <span>Mohit Pathak</span>
-            </p>
-        </div>
+        <p class="footer-text">
+            &copy; Arena Animation 2026 | Design by <span>Mohit Pathak</span>
+        </p>
     </footer>
 
 </body>
