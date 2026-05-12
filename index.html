@@ -3,223 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aotm Website</title>
+    <title>Arena Animation GTB Nagar</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
     <style>
-        
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #fff;
-            color: #333;
+            background-color: #f4f6f9;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         
-        header {
+        .header-bg {
+            background-color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            width: 95%; 
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            height: 80px;
         }
 
-        .logo-box .brand {
-            color: #e31e24;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            line-height: 1;
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
         }
 
-        .logo-box .sub-text {
-            font-size: 0.85rem;
-            color: #555;
+        .logo-box img {
+            height: 55px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #111111;
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: #3b82f6; 
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover { color: #3b82f6; }
+
+       
+        .hero-section {
+            padding: 160px 0 100px 0;
+            background-color: #ffffff;
+        }
+
+        .hero-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content { flex: 1; }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #111111;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: #666666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-blue {
+            text-decoration: none;
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-blue:hover { 
+            background-color: #2563eb; 
+            transform: translateY(-3px);
+        }
+
+        .hero-img { 
+            flex: 1; 
+            margin-left: -30px;
+        }
+
+        .hero-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            border: 8px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        
+        .section-padding { padding: 80px 0; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+
+        .grid-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .box-card {
+            background-color: #ffffff;
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #eef0f3;
+            transition: 0.4s;
+        }
+
+        .box-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .box-card h3 {
+            font-size: 1.3rem;
+            color: #111111;
+            margin-bottom: 15px;
+        }
+
+        .box-card p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+        
+        .main-footer {
+            background-color: #ffffff;
+            padding: 30px 0;
+            border-top: 1px solid #eef0f3;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            color: black;
+            font-weight: 500;
+        }
+
+        .footer-text span {
+            color: balck;
             font-weight: 600;
         }
 
         
-        nav ul {
-            display: flex;
-            list-style: none;
+        @media (max-width: 768px) {
+            .nav-container { width: 90%; }
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-img { order: -1; margin-left: 0; margin-top: 20px; }
+            .nav-menu { display: none; }
         }
-
-        nav ul li { margin-left: 20px; }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover { color: #e31e24; }
-
-        
-        #menu-toggle { display: none; }
-        .hamburger-icon {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .hamburger-icon span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            border-radius: 3px;
-        }
-
-        
-        .hero {
-            min-height: 75vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('Images/p2.png');
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-text-only {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .hero-text-only h1 {
-            font-size: clamp(1.8rem, 5vw, 3.5rem);
-            margin-bottom: 20px;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            font-weight: 800;
-        }
-
-        .hero-text-only h1 span { color: #e31e24; }
-
-        .hero-text-only p {
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            color: #f9f9f9;
-            font-weight: 500;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-        }
-
-        
-        .content-placeholder {
-            padding: 80px 5%;
-            background-color: #ffffff; 
-            text-align: center;
-        }
-
-        footer {
-            background: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
-
-       
-
-        @media (max-width: 992px) {
-            .hamburger-icon { display: flex; }
-
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-in-out;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-            }
-
-            nav ul li {
-                margin: 15px 0;
-            }
-
-            
-            #menu-toggle:checked ~ nav {
-                max-height: 400px;
-            }
-
-            .hero {
-                min-height: 60vh;
-                background-attachment: scroll; 
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-box .brand { font-size: 1.2rem; }
-            .hero { padding: 60px 15px; }
-        }
-        
-        
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-box">
-            <div class="brand">Arena Animation</div>
-            <div class="sub-text">GTB Nagar, Delhi</div>
-        </div>
-
-        <input type="checkbox" id="menu-toggle">
-        
-        <label for="menu-toggle" class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+    <header class="header-bg">
+        <nav class="nav-container">
+            <a href="#" class="logo-box"> 
+                <img src="Images/p4.png" alt="Arena Logo">
+                <div class="logo-text">
+                    Arena Animation
+                    <span>GTB Nagar, Delhi</span>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#about-us" class="nav-link">About Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="hero">
-        <div class="hero-text-only">
-            <h1>Build Your Career in <span>Animation & Design</span></h1>
-            <p>Practical training in Animation, VFX, Graphic Design & Web Design.</p>
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span style="color:#3b82f6; font-weight:600; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; display:block; margin-bottom:10px;">Build Your Future</span>
+                <h1>Build Your Career in Animation & Design</h1>
+                <p>Learn Animation, VFX, Graphic Design, and Web Design with practical training and creative projects from experienced industry mentors.</p>
+                <a href="#courses" class="btn-blue">Explore Courses <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <div class="hero-img">
+                <img src="Images/p3.png" alt="Work Showcase">
+            </div>
         </div>
-    </main>
-
-    <section class="content-placeholder">
-        <h2 style="font-size: 2rem; color: #1a1a1a;">Our Popular Programs</h2>
-        <p style="color: #666; max-width: 700px; margin: 20px auto 0;">Join the industry-leading institute to master the latest software and creative techniques used in top production houses.</p>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Arena Animation GTB Nagar. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; letter-spacing: 1px;">VFX | GAMING | ANIMATION | WEB DESIGN</p>
+    <section id="courses" class="section-padding">
+        <div class="section-title">
+            <h2>Our Courses</h2>
+            <p>Choose the best program to kickstart your creative journey</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="box-card">
+                <h3>Animation</h3>
+                <p>Learn 2D & 3D animation with practical projects and portfolio building.</p>
+            </div>
+            <div class="box-card">
+                <h3>VFX</h3>
+                <p>Learn premium visual effects for movies, web-series and media industry.</p>
+            </div>
+            <div class="box-card">
+                <h3>Graphic Design</h3>
+                <p>Create branding layouts, posters, logos, and advanced digital creatives.</p>
+            </div>
+            <div class="box-card">
+                <h3>Web Design</h3>
+                <p>Build professional and responsive websites using clean HTML & CSS code.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us" class="section-padding" style="background-color: #ffffff;">
+        <div class="section-title">
+            <h2>Why Choose Arena Animation</h2>
+            <p>We provide standard facilities and quality education for our students</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="box-card">
+                <h3>Expert Mentors</h3>
+                <p>Learn from experienced faculty with practical industry knowledge and guidance.</p>
+            </div>
+            <div class="box-card">
+                <h3>Practical Training</h3>
+                <p>Work on real creative projects and improve your design skills step by step.</p>
+            </div>
+            <div class="box-card">
+                <h3>Career Support</h3>
+                <p>Get portfolio development guidance and full career support for job opportunities.</p>
+            </div>
+            <div class="box-card">
+                <h3>Creative Lab</h3>
+                <p>Learn in a friendly atmosphere with modern high-end computer labs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p class="footer-text">
+                &copy; Arena Animation 2026 | Design by <span>Mohit Pathak</span>
+            </p>
+        </div>
     </footer>
 
 </body>
